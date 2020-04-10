@@ -719,6 +719,23 @@ function addon:OptionsTable()
 											self:UpdateFrames()
 										end
 									},
+									scale = {
+										order = 7,
+										name = "UI Scale",
+										type = "range",
+										min = 0.5,
+										max = 1.5,
+										step = 0.01,
+										bigStep = 0.05,
+										isPercent = true,
+										get = function() return db.UI.default.scale end,
+										set = function(info, scale)
+											for k,v in pairs(db.UI) do
+												v.scale = scale
+											end
+											self:UpdateFrames()
+										end
+									},
 									reset = {
 										order = -1,
 										name = L["Reset Skin"],
